@@ -40,4 +40,11 @@ public class UserResource {
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(savedUser.getId()).toUri();
         return ResponseEntity.created(location).build();
     }
+
+    //DELETE USERS BY ID
+    @DeleteMapping("/users/{id}")
+    public void deleteUser(@PathVariable int id )
+    {
+        service.deleteById(id);
+    }
 }
